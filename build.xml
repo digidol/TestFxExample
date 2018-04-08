@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="TestFX Example" default="test" basedir=".">
+    
+    <property name="src" location="src" />
+    <property name="build" location="build" />
+    <property name="dist" location="dist" />
+    <property name="libs" location="libs" />
+    
+    <path id="project.class.path">
+        <pathelement path="${java.class.path}/"/>
+        <pathelement path="${build}" />
+        <pathelement path="${libs}/junit-4.12.jar" />
+        <pathelement path="${libs}/hamcrest-core-1.3.jar" />
+        <pathelement path="${libs}/testfx-core-4.0.13-alpha.jar" />
+        <pathelement path="${libs}/testfx-junit-4.0.13-alpha.jar" />
+    </path>
+    
+    <target name="init">
+        <mkdir dir="${build}"/>
+        <mkdir dir="${dist}" />
+        <mkdir dir="${dist}/lib" />
+    </target>
+    
+    <target name="compile" depends="init"
+        description="compile the source">
+        <javac includeantruntime="false" srcdir="${src}" destdir="${build}" debug="yes">
+            <classpath refid="project.class.path" />
+        </javac>
+    </target>
+    
+    <target name="test" depends="compile">
+        <junit fork="yes" dir="${basedir}" printsummary="yes" haltonfailure="true"
+            failureProperty="test.failed">
+            
+            <classpath refid="project.class.path"/>
+            
+            <!-- <formatter type="xml"/> -->
+            
+            <batchtest fork="yes" unless="testcase">
+                <fileset dir="${src}">
+                    <include name="**/*Test*.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+        
+        <junitreport todir="${reports.xml.dir}">
+            <fileset dir="${reports.xml.dir}">
+                <include name="TEST-*.xml" />
+            </fileset>
+            <report format="frames" todir="${reports.html.dir}" />
+        </junitreport>
+    </target>
+    
+    <target name="clean" description="Clean up project">
+        <delete dir="${build}" />
+        <delete dir="${dist}" />
+    </target>
+</project>
+
