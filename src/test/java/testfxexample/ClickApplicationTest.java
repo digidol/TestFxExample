@@ -2,6 +2,7 @@ package testfxexample;
 
 import static org.testfx.api.FxAssert.*;
 import static org.testfx.matcher.control.TextMatchers.*;
+import static org.junit.Assert.*;
 
 import org.testfx.framework.junit.ApplicationTest;
 

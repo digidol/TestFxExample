@@ -23,7 +23,8 @@ public class ClickApplication extends Application {
     public static class ClickPane extends StackPane {
         public ClickPane() {
             super();
-            Button button = new Button("click me!");
+            final Button button = new Button("click me!");
+            
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent e) {
                     button.setText("clicked!");
