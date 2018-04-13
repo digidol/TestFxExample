@@ -24,6 +24,7 @@ public class ClickApplication extends Application {
         public ClickPane() {
             super();
             final Button button = new Button("click me!");
+            button.setId("exampleButton");
             
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent e) {
