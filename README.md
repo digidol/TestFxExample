@@ -11,10 +11,16 @@ is shown below.
  T E S T S
 -------------------------------------------------------
 Running testfxexample.ClickApplicationTest
-Tests run: 2, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 2.426 sec <<< FAILURE!
-should_click_on_button(testfxexample.ClickApplicationTest)  Time elapsed: 1.909 sec  <<< ERROR!
-java.lang.NoSuchMethodError: testfxexample.ClickApplicationTest.clickOn(Ljava/lang/String;[Ljavafx/scene/input/MouseButton;)Lorg/testfx/api/FxRobot;
-	at testfxexample.ClickApplicationTest.should_click_on_button(ClickApplicationTest.java:34)
+start is called
+start is called
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 2.211 sec <<< FAILURE!
+should_click_on_button(testfxexample.ClickApplicationTest)  Time elapsed: 1.8 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expected: Text has text "clicked!"
+     but: was a javafx.scene.control.Button (<Button[id=exampleButton, styleClass=button]'clicked!'>)
+	at org.testfx.api.FxAssert.verifyThatImpl(FxAssert.java:185)
+	at org.testfx.api.FxAssert.verifyThat(FxAssert.java:80)
+	at testfxexample.ClickApplicationTest.should_click_on_button(ClickApplicationTest.java:40)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -47,13 +53,13 @@ java.lang.NoSuchMethodError: testfxexample.ClickApplicationTest.clickOn(Ljava/la
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-should_contain_button(testfxexample.ClickApplicationTest)  Time elapsed: 0.293 sec  <<< FAILURE!
+should_contain_button(testfxexample.ClickApplicationTest)  Time elapsed: 0.268 sec  <<< FAILURE!
 java.lang.AssertionError: 
 Expected: Text has text "click me!"
-     but: was a javafx.scene.control.Button (<Button@658b436f[styleClass=button]'click me!'>)
+     but: was a javafx.scene.control.Button (<Button[id=exampleButton, styleClass=button]'click me!'>)
 	at org.testfx.api.FxAssert.verifyThatImpl(FxAssert.java:185)
 	at org.testfx.api.FxAssert.verifyThat(FxAssert.java:80)
-	at testfxexample.ClickApplicationTest.should_contain_button(ClickApplicationTest.java:28)
+	at testfxexample.ClickApplicationTest.should_contain_button(ClickApplicationTest.java:31)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
